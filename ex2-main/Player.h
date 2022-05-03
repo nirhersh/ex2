@@ -5,16 +5,13 @@
 #define EX2_Player_H
 
 #include <string>
+#include <iostream>
 #include "utilities.h"
 
-using namespace std;
+using std::string;
 
 class Player{
 public:
-    static const int maxLevel = 10;
-    static const int minLevel = 1;
-    static const int minHealth = 0;
-    static const int minCoins = 0;
     /*
     *
     * C'tor of the Player class
@@ -22,47 +19,45 @@ public:
     * @param name - the name of the new player
     * @param maxHP - the maximum HP the player can have, default value is 100
     * @param force - the initial force of the player, defualt value is 5
-    * @param level - the initial level of the player, default value is 1
-    * @param coins - the initial amount of coins the player have, default value is 0
     * @return 
     *        A new instance of a player
     */
-    Player(const string name, const int maxHP=100, const int force=5, const int level=1, const int coins=0);
+    Player(const string name, const int maxHP=100, const int force=5);
 
     /*
     *
     * Destructor of the Player class
     * 
     */
-    ~Player();
+    ~Player() = default;
 
     /*
     *
     * Copy C'tor of the Player class
     * 
     */
-    Player(const Player& player);
+    Player(const Player& player) = default;
 
     /*
     *
     * Assignment operator of the Player class
     * 
     */
-    Player& Player::operator=(const Player& player);
+    //Player& Player::operator=(const Player& player) = default;
 
     /*
     *
     * a function that prints the player info
     * 
     */
-    void Player::printInfo();
+    void printInfo();
 
     /*
     *
     * a function that increments the level of the player by one, unless the player is at the maximum value, than it does nothing
     * 
     */
-    void Player::levelUp();
+    void levelUp();
     
     /*
     *
@@ -70,7 +65,7 @@ public:
     * @return 
     *       The current player level
     */
-    int Player::getLevel();
+    int getLevel();
 
     
     /*
@@ -80,16 +75,16 @@ public:
     * @param forceBuff - the amount of force to add to the player
     * 
     */
-    void Player::buff(int forceBuff);
+    void buff(const int forceBuff);
 
     /*
     *
     * a function that adds HP to the player
     * 
-    * @param healthPoints - the amount of HP to add to the player
+    * @param hp - the amount of HP to add to the player
     * 
     */
-    void Player::heal(int healthPoints);
+    void heal(const int hp);
 
     /*
     *
@@ -98,7 +93,7 @@ public:
     * @param damagePoints - the amount of HP to subtract from the player
     * 
     */
-    void Player::damage(int damagePoints);
+    void damage(const int damagePoints);
 
     /*
     *
@@ -107,7 +102,7 @@ public:
     * @return
     *       true if the player has 0 HP, otherwise false
     */
-    bool Player::isKnockedOut();
+    bool isKnockedOut();
 
     /*
     *
@@ -116,7 +111,7 @@ public:
     * @param coins - the amount of coins to add to the player
     * 
     */
-    void Player::addCoins(int coins);
+    void addCoins(const int coins);
 
     /*
     *
@@ -126,7 +121,7 @@ public:
     * @return 
     *       true if the payment was successfull, false if the player didn't have enough money
     */
-    bool Player::pay(int payment);
+    bool pay(const int payment);
     
     /*
     *
@@ -135,16 +130,20 @@ public:
     * @return 
     *       the current attack strength of the player
     */
-    int Player::getAttackStrength();
+    int getAttackStrength();
+
 private:
-    string m_name;
+    const string m_name;
     int m_level;
     int m_force;
-    int m_maxHP;
+    const int m_maxHP;
     int m_healthPoints;
     int m_coins;
+    static const int maxLevel = 10;
+    static const int minLevel = 1;
+    static const int minHealth = 0;
+    static const int minCoins = 0;
 };
-
 
 
 #endif //EX2_Card_H
