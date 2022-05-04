@@ -16,7 +16,7 @@ m_healthPoints(maxHP),
 m_coins(minCoins)
 {}
 
-void Player::printInfo(){
+void Player::printInfo() const{
     printPlayerInfo(m_name.c_str(), m_level, m_force, m_healthPoints, m_coins);
 }
 
@@ -26,7 +26,7 @@ void Player::levelUp(){
     }
 }
 
-int Player::getLevel(){
+int Player::getLevel() const{
     return m_level;
 }
 
@@ -49,7 +49,7 @@ void Player::damage(const int damagePoints){
     }
 }
 
-bool Player::isKnockedOut(){
+bool Player::isKnockedOut() const{
     return minHealth == m_healthPoints;
 }
 
@@ -66,7 +66,7 @@ bool Player::pay(const int payment){
     return true;
 }
 
-int Player::getAttackStrength(){
+int Player::getAttackStrength() const{
     return m_force + m_level;
 }
 

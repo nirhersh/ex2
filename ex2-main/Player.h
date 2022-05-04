@@ -40,17 +40,10 @@ public:
 
     /*
     *
-    * Assignment operator of the Player class
-    * 
-    */
-    //Player& Player::operator=(const Player& player) = default;
-
-    /*
-    *
     * a function that prints the player info
     * 
     */
-    void printInfo();
+    void printInfo() const;
 
     /*
     *
@@ -65,7 +58,7 @@ public:
     * @return 
     *       The current player level
     */
-    int getLevel();
+    int getLevel() const;
 
     
     /*
@@ -102,7 +95,7 @@ public:
     * @return
     *       true if the player has 0 HP, otherwise false
     */
-    bool isKnockedOut();
+    bool isKnockedOut() const;
 
     /*
     *
@@ -130,7 +123,7 @@ public:
     * @return 
     *       the current attack strength of the player
     */
-    int getAttackStrength();
+    int getAttackStrength() const;
 
 private:
     const string m_name;
