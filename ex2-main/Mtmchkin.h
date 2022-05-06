@@ -59,8 +59,19 @@ public:
 
     //TODO: complete the Mtmchkin class.
 
+    Mtmchkin(const Mtmchkin&);
+    ~Mtmchkin();
+
+
 private:
-    //TODO: complete the Mtmchkin class.
+    Card* m_cardsArray;
+    const int m_numOfCards;
+    GameStatus m_gameStatus;
+    int m_currentCard;
+    Player m_player;
+    
+
+
 
 };
 

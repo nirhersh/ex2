@@ -38,6 +38,8 @@ public:
     */
     Player(const Player& player) = default;
 
+    Player& operator=(const Player& other) = default;
+
     /*
     *
     * a function that prints the player info
