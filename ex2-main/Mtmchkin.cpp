@@ -53,7 +53,7 @@ void Mtmchkin::playNextCard(){
      }
 }
 
-bool Mtmchkin::isOver(){
+bool Mtmchkin::isOver() const{
      if(m_gameStatus == GameStatus::Win || m_gameStatus == GameStatus::Loss){
           return true;
      }else{

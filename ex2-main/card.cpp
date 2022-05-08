@@ -7,8 +7,8 @@ using std::endl;
 
 
 Card::Card(CardType type, const CardStats& stats){
-    this->m_effect = type;
-    this->m_stats = stats;
+    m_effect = type;
+    m_stats = stats;
 }
 
 void Card::applyEncounter(Player& player) const
@@ -50,16 +50,16 @@ void Card::printInfo() const
 {
     if(this->m_effect == CardType::Battle)
     {
-        printBattleCardInfo(this->m_stats);
+        printBattleCardInfo(m_stats);
     }
     if(this->m_effect == CardType::Heal)
     {
-        printHealCardInfo(this->m_stats);
+        printHealCardInfo(m_stats);
     }
     if(this->m_effect == CardType::Buff)
     {
-        printBuffCardInfo(this->m_stats);
+        printBuffCardInfo(m_stats);
     }
-    printTreasureCardInfo(this->m_stats);
+    printTreasureCardInfo(m_stats);
 }
 

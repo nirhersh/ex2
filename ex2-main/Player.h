@@ -131,7 +131,7 @@ private:
     const string m_name;
     int m_level;
     int m_force;
-    const int m_maxHP;
+    int m_maxHP;
     int m_healthPoints;
     int m_coins;
     static const int maxLevel = 10;

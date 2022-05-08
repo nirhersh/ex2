@@ -9,12 +9,19 @@ using std::cout;
 
 Player::Player(const string name, const int maxHP, const int force) :
 m_name(name),
-m_maxHP(maxHP),
-m_force(force),
+m_healthPoints(minHealth),
 m_level(minLevel),
-m_healthPoints(maxHP),
 m_coins(minCoins)
-{}
+{
+    if(maxHP > 0 ){
+        m_healthPoints = maxHP;
+        m_maxHP = maxHP;
+    }
+
+    if (force >= 0){
+        m_force = force;
+    }
+}
 
 void Player::printInfo() const{
     printPlayerInfo(m_name.c_str(), m_level, m_force, m_healthPoints, m_coins);
@@ -31,10 +38,16 @@ int Player::getLevel() const{
 }
 
 void Player::buff(const int forceBuff){
+    if(forceBuff <= 0){
+        return;
+    }
     m_force += forceBuff;
 }
 
 void Player::heal(const int hp){
+    if(hp <= 0){
+        return;
+    }
     if(hp + m_healthPoints > m_maxHP){
         m_healthPoints = m_maxHP;
     }else{
@@ -43,6 +56,9 @@ void Player::heal(const int hp){
 }
 
 void Player::damage(const int damagePoints){
+    if(damagePoints <= 0){
+        return;
+    }
     m_healthPoints -= damagePoints;
     if(m_healthPoints < minHealth){
         m_healthPoints = minHealth;
@@ -54,10 +70,16 @@ bool Player::isKnockedOut() const{
 }
 
 void Player::addCoins(const int coins){
+    if(coins <= 0){
+        return;
+    }
     m_coins += coins;
 }
 
 bool Player::pay(const int payment){
+    if(payment < 0){
+        return false;
+    }
     if(m_coins - payment < minCoins){
         return false;
     }else{
