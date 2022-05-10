@@ -1,1 +1,4 @@
 FileTests/*
+*.zip
+*.txt
+*.exe

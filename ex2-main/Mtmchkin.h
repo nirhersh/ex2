@@ -69,6 +69,7 @@ private:
     GameStatus m_gameStatus;
     int m_currentCard;
     Player m_player;
+    static const int maxLevel = 10;
     
 
 

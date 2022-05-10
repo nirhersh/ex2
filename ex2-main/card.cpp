@@ -1,7 +1,7 @@
 #include "Card.h"
 #include "utilities.h"
 #include <iostream>
-#include "player.h"
+#include "Player.h"
 using std::cout;
 using std::endl;
 
@@ -28,7 +28,7 @@ void Card::applyEncounter(Player& player) const
     {
         if(player.pay(m_stats.cost))
         {
-        player.buff(m_stats.force); 
+            player.buff(m_stats.buff); 
         }
     } 
     if(m_effect == CardType::Battle)
@@ -39,6 +39,7 @@ void Card::applyEncounter(Player& player) const
             printBattleResult(false);
         } else {
             player.addCoins(m_stats.loot);
+            player.levelUp();
             printBattleResult(true);
         } 
     }  
@@ -51,14 +52,17 @@ void Card::printInfo() const
     {
         printBattleCardInfo(m_stats);
     }
-    if(this->m_effect == CardType::Heal)
+    else if(this->m_effect == CardType::Heal)
     {
         printHealCardInfo(m_stats);
     }
-    if(this->m_effect == CardType::Buff)
+    else if(this->m_effect == CardType::Buff)
     {
         printBuffCardInfo(m_stats);
     }
-    printTreasureCardInfo(m_stats);
+    else
+    {
+        printTreasureCardInfo(m_stats);
+    }
 }
 

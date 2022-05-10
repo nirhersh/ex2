@@ -1,7 +1,7 @@
 #include "Card.h"
 #include "utilities.h"
 #include <iostream>
-#include "player.h"
+#include "Player.h"
 #include "Mtmchkin.h"
 using std::cout;
 using std::endl;
@@ -50,6 +50,12 @@ void Mtmchkin::playNextCard(){
      // if last card go back to the start of the card array
      if(m_currentCard >= m_numOfCards){
           m_currentCard = 0;
+     }
+     if(m_player.getLevel() == maxLevel){
+          m_gameStatus = GameStatus::Win;
+     }
+     if(m_player.isKnockedOut()){
+          m_gameStatus = GameStatus::Loss;
      }
 }
 
