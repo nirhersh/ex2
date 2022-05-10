@@ -31,7 +31,6 @@ void Card::applyEncounter(Player& player) const
         player.buff(m_stats.force); 
         }
     } 
-    // must be battle:
     if(m_effect == CardType::Battle)
     {
         if(m_stats.force > player.getAttackStrength())

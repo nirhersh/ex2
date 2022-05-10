@@ -8,11 +8,11 @@ using std::endl;
 using std::string;
 
 Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :
-     m_player(string(playerName)),
      m_cardsArray(new Card[numOfCards]),
      m_numOfCards(numOfCards),
+     m_gameStatus(GameStatus::MidGame),
      m_currentCard(0),
-     m_gameStatus(GameStatus::MidGame)
+     m_player(string(playerName))
 {
      for (int i = 0; i < numOfCards; i++)
      {
@@ -21,11 +21,11 @@ Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCard
 }
 
 Mtmchkin::Mtmchkin(const Mtmchkin& other) :
-     m_player(other.m_player),
      m_cardsArray(new Card[other.m_numOfCards]),
      m_numOfCards(other.m_numOfCards),
+     m_gameStatus(other.m_gameStatus),
      m_currentCard(other.m_currentCard),
-     m_gameStatus(other.m_gameStatus)
+     m_player(other.m_player)
 {
      for (int i = 0; i < other.m_numOfCards; i++)
      {

@@ -9,8 +9,8 @@ using std::cout;
 
 Player::Player(const string name, const int maxHP, const int force) :
 m_name(name),
-m_healthPoints(minHealth),
 m_level(minLevel),
+m_healthPoints(minHealth),
 m_coins(minCoins)
 {
     if(maxHP > 0 ){
