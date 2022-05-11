@@ -17,9 +17,16 @@ m_coins(minCoins)
         m_healthPoints = maxHP;
         m_maxHP = maxHP;
     }
+    else {
+        m_healthPoints = defaultMaxHp;
+        m_maxHP = defaultMaxHp;
+    }
 
     if (force >= 0){
         m_force = force;
+    }
+    else {
+        m_force = defaultForce;
     }
 }
 

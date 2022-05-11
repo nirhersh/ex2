@@ -138,6 +138,8 @@ private:
     static const int minLevel = 1;
     static const int minHealth = 0;
     static const int minCoins = 0;
+    static const int defaultForce = 5;
+    static const int defaultMaxHp = 100;
 };
 
 

@@ -2,3 +2,5 @@ FileTests/*
 *.zip
 *.txt
 *.exe
+uniTests/*
+*.o
