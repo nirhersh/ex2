@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
-Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :
+explicit Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :
      m_cardsArray(new Card[numOfCards]),
      m_numOfCards(numOfCards),
      m_gameStatus(GameStatus::MidGame),
@@ -31,6 +31,23 @@ Mtmchkin::Mtmchkin(const Mtmchkin& other) :
      {
           m_cardsArray[i] = other.m_cardsArray[i];
      }  
+}
+
+Mtmchkin& Mtmchkin::operator=(const Mtmchkin& other){
+     if(this == &other){
+          return *this;
+     }
+     delete[] m_cardsArray;
+     m_cardsArray = new Card[other.m_numOfCards];
+     m_numOfCards = other.m_numOfCards;
+     for(int i=0; i<m_numOfCards; i++){
+          m_cardsArray[i] = other.m_cardsArray[i];
+     }
+     m_currentCard = other.m_currentCard;
+     m_player = other.m_player;
+     m_gameStatus = other.m_gameStatus;
+     return *this;
+
 }
 
 Mtmchkin::~Mtmchkin(){

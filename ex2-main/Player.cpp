@@ -7,7 +7,7 @@
 using std::string;
 using std::cout;
 
-Player::Player(const string name, const int maxHP, const int force) :
+explicit Player::Player(const string name, const int maxHP, const int force) :
 m_name(name),
 m_level(minLevel),
 m_healthPoints(minHealth),

@@ -57,15 +57,34 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //TODO: complete the Mtmchkin class.
-
+    /*
+     *  Copy C'tor of the Mtmchkin class:
+     *
+     *  @param: Mtmchkin& - the Mtmchkin object to copy
+     *      
+     */
     Mtmchkin(const Mtmchkin&);
+
+    /*
+     *  Assignment operator of the Mtmchkin class
+     *
+     *  @param Mtmchkin& - the Mtmchkin object to assign to the object
+     *  @return
+     *          reference to the assigned object
+     */
+    Mtmchkin& operator=(const Mtmchkin&);
+
+    /*
+     *
+     *  D'tor of the Mtmchkin class
+     * 
+     */
     ~Mtmchkin();
 
 
 private:
     Card* m_cardsArray;
-    const int m_numOfCards;
+    int m_numOfCards;
     GameStatus m_gameStatus;
     int m_currentCard;
     Player m_player;

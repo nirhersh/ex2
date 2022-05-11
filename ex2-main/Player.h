@@ -128,7 +128,7 @@ public:
     int getAttackStrength() const;
 
 private:
-    const string m_name;
+    string m_name;
     int m_level;
     int m_force;
     int m_maxHP;
