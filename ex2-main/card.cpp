@@ -6,7 +6,7 @@ using std::cout;
 using std::endl;
 
 
-explicit Card::Card(CardType type, const CardStats& stats){
+Card::Card(CardType type, const CardStats& stats){
     m_effect = type;
     m_stats = stats;
 }

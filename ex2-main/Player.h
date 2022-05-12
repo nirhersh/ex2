@@ -22,7 +22,7 @@ public:
     * @return 
     *        A new instance of a player
     */
-    Player(const string name, const int maxHP=100, const int force=5);
+    explicit Player(const string name, const int maxHP=100, const int force=5);
 
     /*
     *

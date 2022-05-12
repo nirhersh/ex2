@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
-explicit Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :
+Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :
      m_cardsArray(new Card[numOfCards]),
      m_numOfCards(numOfCards),
      m_gameStatus(GameStatus::MidGame),
