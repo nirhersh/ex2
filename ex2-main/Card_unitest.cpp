@@ -3,17 +3,22 @@
 #include <assert.h>
 #include "Player.h"
 #include "Card.h"
-void applyEncounterTest();
+bool applyEncounterTest();
 
 //to run this test: g++ --std=c++11 -Wall -Werror -pedantic-errors Player.cpp utilities.cpp  Card.cpp Card_unitest.cpp -o Card_unitest.exe
 //and then: ./Card_unitest.exe
 
 int main()
 {
-    applyEncounterTest();
+    if(applyEncounterTest())
+    {
+        printf("Pass the test :)\n ------------------- \n ");
+    } else {
+        printf("fail :(\n ------------------- \n");
+    }
 }
 
-void applyEncounterTest()
+bool applyEncounterTest()
 {
     Player Roei = Player("roei", 25, 10); // maxHp = 25, force = 10, coins = 0, 
     CardStats stats(5, 3, 10, 10, 8, 10); // force = 5, hploss = 3, cost = 10, heal = 10, buff = 8, loot = 10
@@ -56,4 +61,5 @@ void applyEncounterTest()
     cards[0].applyEncounter(Roei); ////force = 50 coins = 0
     assert(Roei.getAttackStrength() -Roei.getLevel() == 50);
     assert(Roei.getLevel() == 3);
+    return true;
 }
