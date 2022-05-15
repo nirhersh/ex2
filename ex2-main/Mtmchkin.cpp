@@ -3,8 +3,7 @@
 #include <iostream>
 #include "Player.h"
 #include "Mtmchkin.h"
-using std::cout;
-using std::endl;
+
 using std::string;
 
 Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :

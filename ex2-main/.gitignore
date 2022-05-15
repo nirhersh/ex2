@@ -4,3 +4,5 @@ FileTests/*
 *.exe
 uniTests/*
 *.o
+*.json
+*.gitignore
